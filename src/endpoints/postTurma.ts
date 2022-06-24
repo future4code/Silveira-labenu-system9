@@ -4,27 +4,25 @@ import { connection } from "../data/BaseDataBase";
 
 export default async function postTurma(req: Request, res: Response) {
     try {
-        const { nome, modulo } = req.body
+        const nome = req.body.nome;
 
         type Turma = {
-            nome: string,
-            modulo: string,
-        }
+            nome: string
+        };
 
-        if (typeof nome !== "string" || typeof modulo !== "string") {
+        if (typeof nome !== "string") {
             throw new Error();
-        }
+        };
 
         const turma: Turma = {
-            nome,
-            modulo
-        }
+            nome
+        };
 
-        await connection(`Turma`).insert(turma)
+        await connection(`Turma`).insert(turma);
 
-        res.status(201).send("Turma criada com sucesso.")
+        res.status(201).send("Turma criada com sucesso.");
     } catch (error: any) {
-        console.log(error.sqlMessage || error.message)
-        res.status(400).send("Ocorreu um erro.")
-    }
-}
+        console.log(error.sqlMessage || error.message);
+        res.status(400).send("Ocorreu um erro.");
+    };
+};
