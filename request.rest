@@ -1,0 +1,26 @@
+GET http://localhost:3003/estudante
+Content-Type: application/json
+
+{
+    "nome": "Erica"
+}
+###
+POST http://localhost:3003/estudante
+Content-Type: application/json
+
+{
+    "nome": "Daniel",
+    "email": "daniel@gmail.com",
+    "data_nasc": "1978-01-25",
+    "turma_id": 1
+}
+
+###
+PUT http://localhost:3003/estudante
+Content-Type: application/json
+
+{   
+    
+    "turma_id": 1,
+    "id":1
+}
